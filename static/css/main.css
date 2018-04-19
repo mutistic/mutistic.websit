@@ -1,0 +1,98 @@
+/* 主标签CSS */
+
+/*
+CSS参考手册： http://www.css88.com/book/css/quicksearch.htm
+CSS3参考手册：http://www.css88.com/book/css/css3-quicksearch.htm
+
+    margin：外补白，上右下左，检索或设置对象四边的外延边距 http://www.css88.com/book/css/properties/margin/margin.htm
+    padding：内补白，上右下左，检索或设置对象四边的内部边距 http://www.css88.com/book/css/properties/padding/padding.htm
+    outline：复合属性。设置或检索对象外的线条轮廓 http://www.css88.com/book/css/properties/user-interface/outline.htm
+    transparent transparent是全透明黑色(black)的速记法，类似rgba(0,0,0,0)。http://www.css88.com/book/css/values/color/transparent.htm
+    font-family 设置或检索用于对象中文本的字体名称序列。 http://www.css88.com/book/css/properties/font/index.htm
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    font-family: 'Consolas';
+}
+
+.bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.bg1{
+    background-image: url('../img/bg1.jpg');
+}
+.bg2{background-image: url('../img/bg2.jpg');}
+
+.blur {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+
+.bg-trans{background: transparent;}
+.bg-white{background: white;}
+
+.header {
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    height: 35px;
+    width: 100%;
+    /*padding: 14px 0;*/
+}
+
+.footer {
+    position: relative;
+    height: 45px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /*padding: 14px 0;
+    margin-top: 30px;*/
+}
+
+.main-menu {list-style: none;}
+
+.main-menu button {
+    width: 100%;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    /*text-align: center;
+    hight: 80px;
+    font-size: 16px;
+    margin: 0 auto;*/
+}
+
+.main-menu button:focus {
+    color: black;
+    background-color: white;
+}
+
+.disclaimer ol,ul {
+    padding-left: 30px;
+}
+
+.back-home {background: #71D459;}
+.back-image {background: #01B8E2;}
+.back-product {background: #1ADDEA;}
+.back-brown {background: #b85b53;}
+.back-bug {background: #E8534F;}
+.back-tips {background: #D6E185;}
+.back-book {background: #FFE3B3;}
+.back-user {background: #51667B;}
+
+.color-white{color: white;}
+.color-home{color: #CBD0B4;}/*#CBD0B4;}*/
+.color-red{color: red;}
+
+
+
+
+

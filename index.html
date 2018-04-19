@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>不语:上善无言 不语大德</title>
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap4 CSS+JS -->
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <!-- AngularJS -->
+    <!-- Font Awesome 是一套绝佳的图标字体库和CSS框架 -->
+    <link type="text/css" rel="stylesheet" href="static/lib/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="static/lib/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="static/lib/popper/popper.js"></script>
+    <script type="text/javascript" src="static/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="static/lib/angular/angular.js"></script>
+    <link type="text/css" rel="stylesheet" href="static/lib/font/css/font-awesome.css">
+    <!--min-->
+    <!--<link type="text/css" rel="stylesheet" href="static/lib/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="static/lib/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/lib/popper/popper.min.js"></script>
+    <script type="text/javascript" src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/lib/angular/angular.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="static/lib/font/css/font-awesome.min.css">-->
+
+    <!--cdn-->
+    <!--<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">-->
+
+    <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="static/css/common.css"/>
+
+    <!-- Model -->
+    <script type="text/javascript" src="static/app/index/indexModel.js"></script>
+</head>
+
+<body ng-app="indexModel" ng-controller="indexController">
+
+<div>
+    <div id="divBackGround" ng-model="backGroundTwo" class="bg bg1 blur"></div>
+
+    <header class="header">
+        <div style="float: right">
+            <audio id="audioBackMusic" src="static/music/NgauHung.mp3">您的浏览器不支持audio，请升级</audio>
+        </div>
+        <!--<iframe id="frameHead" class="w100p h100p" src="home.html" frameborder="0"></iframe>-->
+    </header>
+
+    <div class="center" style="width: 99.2%; height: 843px;">
+        <div class="row mt-25 ml-15 h-100-p">
+
+            <!--按钮-->
+            <div class="col-sm-2 h-100-p">
+                <ul class="main-menu">
+                    <li>
+                        <button id="btnHome" ng-click="ngClick_btnHome()" class="btn back-home fa fa-home fa-3x"
+                                title="主页"></button>
+                    </li>
+                    <li>
+                        <button id="btnImage" class="btn back-image fa fa-image fa-3x" title="照片"></button>
+                    </li>
+                    <li>
+                        <button id="btnTips" class="btn back-tips fa fa-tag fa-3x" title="Tips"></button>
+                    </li>
+                    <li>
+                        <button id="btnBug" class="btn back-bug fa fa-bug fa-3x" title="BUG"></button>
+                    </li>
+                    <li>
+                        <button id="btnBook" class="btn back-book fa fa-book fa-3x" title="读书"></button>
+                    </li>
+                    <li>
+                        <button id="btnProduct" ng-click="ngClick_btnProduct()"
+                                class="btn back-product fa fa-product-hunt fa-3x" title="项目"></button>
+                    </li>
+                    <li>
+                        <button id="btnUser" class="btn back-user fa fa-user fa-3x" title="关于我们"></button>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-8 h-100-p">
+                <iframe id="frameContent" class="w-100 h-100" src="timer.html" frameborder="0"></iframe>
+            </div>
+
+            <div class="col-sm-2 h-100-p">
+                <p>主页:Hello Word!</p>
+                <p>照片:文件服务器,分页</p>
+                <p>Tips：知识积累</p>
+                <p>BUG：遇到的BUG</p>
+                <p>读书：读书感悟</p>
+                <p>项目：登录\物流系统\文件上传</p>
+                <p>关于我们</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="text-center pt-10 color-home">
+            <a class="color-home" href="index.html">Design by 不语 个人网站</a> |
+            <a class="color-red" href="" ng-click="ngClick_disc()">免责声明（详细）</a>
+            <!--尹永超 版权所有丨基于 WordPress 构建 © 2018丨托管于 腾讯云主机 & 七牛云存储 丨京ICP备18015597号-1
+            站长统计 | 今日IP[3844] | 今日PV[13243] | 昨日IP[4727] | 昨日PV[15771] | 当前在线[91]-->
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
