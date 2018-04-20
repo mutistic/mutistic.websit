@@ -16,7 +16,7 @@ angular.module("timerModel", [])
                         "events": [
                             {
                                 "mouths": 2,
-                                "times": "29_1",
+                                "times": "29",
                                 "even": "测试11"
                             }, {
                                 "mouths": 2,
