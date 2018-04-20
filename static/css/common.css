@@ -20,7 +20,10 @@ CSS3参考手册：http://www.css88.com/book/css/css3-quicksearch.htm
 .float-none{float: none;}
 .float-inherit{float: inherit;}
 
-/*字体 font */
+.display-none{display: none;}
+.display-block{display: block;}
+
+    /*字体 font */
 .fs-30{font-size: 30px;}
 .fs-50{font-size: 50px;}
 .fs-60{font-size: 60px;}

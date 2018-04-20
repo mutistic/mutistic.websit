@@ -1,9 +1,13 @@
 angular.module('homeModel', [])
     .controller('homeController',
         function ($scope, $rootScope) {
-            $scope.ngClick_Hello = function () {
-                window.location.href = "index.html";
-            }
+
+            /**actions*/
+            $scope.actions = {
+                "clickHello":function () {
+                    parent.window.location.href = "index.html";
+                }
+            };
         }
     );
 

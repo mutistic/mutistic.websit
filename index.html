@@ -5,7 +5,7 @@
     <title>不语:上善无言 不语大德</title>
     <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon"/>
 
-    <base target="_blank" />
+    <base target="_blank"/>
     <!-- Bootstrap4 CSS+JS -->
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -40,19 +40,12 @@
 
     <!-- Model -->
     <script type="text/javascript" src="static/app/index/indexModel.js"></script>
-    <script type="text/javascript" >
-//        $(function(){
-//            $("#frameContent").onloadend(function(){
-//                alert("11");
-//            });
-//        });
-    </script>
 </head>
 
 <body ng-app="indexModel" ng-controller="indexController">
 
 <div>
-    <div id="divBackGround" ng-model="backGroundTwo" class="bg bg1 blur"></div>
+    <div id="divBackGround" ng-model="backGroundTwo" class="bg bg1 blur" style="width: 1920px"></div>
 
     <header class="header">
         <div style="float: right">
@@ -61,14 +54,14 @@
         <!--<iframe id="frameHead" class="w100p h100p" src="home.html" frameborder="0"></iframe>-->
     </header>
 
-    <div id="divCenter" class="center w-99-p" style="height: 843px;">
+    <div id="divCenter" class="center" style="height: 843px; width: 1888px">
         <div class="row mt-25 ml-15 h-100-p">
 
-            <!--按钮-->
+            <!--菜单按钮-->
             <div class="col-sm-2 h-100-p">
                 <ul class="main-menu">
                     <li>
-                        <button id="btnHome" ng-click="ngClick_btnHome()" class="btn back-home fa fa-home fa-3x"
+                        <button id="btnHome" ng-click="actions.clickBtnHome()" class="btn back-home fa fa-home fa-3x"
                                 title="主页"></button>
                     </li>
                     <li>
@@ -84,11 +77,11 @@
                         <button id="btnBook" class="btn back-book fa fa-book fa-3x disabled"></button>
                     </li>
                     <li>
-                        <button id="btnTimer" ng-click="ngClick_btnTimer()"
+                        <button id="btnTimer" ng-click="actions.clickBtnTimer()"
                                 class="btn back-timer fa fa-calendar fa-3x"></button>
                     </li>
                     <li>
-                        <button id="btnProduct" ng-click="ngClick_btnProduct()"
+                        <button id="btnProduct" ng-click="actions.clickBtnProduct()"
                                 class="btn back-product fa fa-product-hunt fa-3x disabled"></button>
                     </li>
                     <li>
@@ -97,9 +90,9 @@
                 </ul>
             </div>
 
-
-            <div class="col-sm-8 h-100-p" id="myiframe">
-                <iframe id="frameContent" ng-model="frameChane" width="100%" height="100%" class="d-block"
+            <!--主信息-->
+            <div id="divContent" class="col-sm-8 h-100-p">
+                <iframe id="frameContent" ng-model="frameChane" width="100%" height="100%" class="display-block"
                         src="home.html" frameborder="0" scrolling="no"></iframe>
             </div>
 
@@ -118,7 +111,7 @@
     <footer class="footer">
         <div class="text-center pt-10 color-home">
             <a class="color-home" href="index.html">Design by 不语 个人网站</a> |
-            <a class="color-red" href="" ng-click="ngClick_disc()">免责声明（详细）</a>
+            <a class="color-red" href="" ng-click="actions.clickDisc()">免责声明（详细）</a>
             <!--尹永超 版权所有丨基于 WordPress 构建 © 2018丨托管于 腾讯云主机 & 七牛云存储 丨京ICP备18015597号-1
             站长统计 | 今日IP[3844] | 今日PV[13243] | 昨日IP[4727] | 昨日PV[15771] | 当前在线[91]-->
         </div>
