@@ -69,14 +69,17 @@ angular.module('indexModel', [])
                     return;
                 }
                 var divSecondFrame = frameDoc.getElementsByClassName("content-frame-second");
-                if (!divSecondFrame) {
+                if (divSecondFrame == null || divSecondFrame.length <= 0 ) {
                     return;
                 }
 
                 $(frameDoc).ready(function () {
-                    $(divSecondFrame).slideDown(500, function () {
+                    $(divSecondFrame[0]).slideDown(500, function () {
                         setHeight();
                     });
+                    // $(frameDoc.getElementById("divFrameSecond")).slideToggle(500, function () {
+                    //     setHeight();
+                    // });
                 });
             });
 
@@ -134,7 +137,8 @@ angular.module('indexModel', [])
                 if (!frameHeight) {
                     frameHeight = 0;
                 }
-                console.info("baseURI" + frameContent.contentDocument.baseURI + " height：" + document.body.height + " frameHeight+30：" + (frameHeight + heightDefault));
+
+                console.info("baseURI" + frameContent.contentDocument.baseURI +" frameHeight+30：" + (frameHeight + heightDefault));
                 if (divCenter.offsetHeight && divCenter.offsetHeight < frameHeight + heightDefault) {
                     document.body.height = frameHeight + heightDefault + "px";
                     divCenter.style.height = frameHeight + heightDefault + "px";
