@@ -91,12 +91,17 @@ angular.module("timerModel", [])
                         "events": [
                             {
                                 "mouths": 4,
+                                "times": "21",
+                                "even": "1、添加背景音乐播放及心跳效果。2、添加背景图片及音乐定时切换效果。"
+                            },
+                            {
+                                "mouths": 4,
                                 "times": "20",
-                                "even": "1、iframe添加slideDown滑动特效。2、添加置顶置底特效。3、iframe重新实现随主界面滚动。4、处理背景图和中间协调性。"
+                                "even": "1、iframe添加slideDown滑动效果。2、添加置顶置底效果。3、iframe重新实现随主界面滚动。4、处理背景图和中间协调性。"
                             }, {
                                 "mouths": 4,
                                 "times": "19",
-                                "even": "1、ittun实现外网访问。2、Git版本管理。3、完成静态时间轴。4、处理iframe滚动条问题。5、文字添加transition旋转特效。"
+                                "even": "1、ittun实现外网访问。2、Git版本管理。3、完成静态时间轴。4、处理iframe滚动条问题。5、添加文字旋转效果。"
                             }, {
                                 "mouths": 4,
                                 "times": "17",

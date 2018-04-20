@@ -45,16 +45,17 @@
 <body ng-app="indexModel" ng-controller="indexController">
 
 <div>
-    <div id="divBackGround" ng-model="backGroundTwo" class="bg bg1 blur" style="width: 1920px"></div>
+    <div id="backGroundDiv" ng-model="backGroundTwo" class="bg bg1 blur" style="width: 1920px"></div>
 
     <header class="header">
-        <div style="float: right">
-            <audio id="audioBackMusic" src="static/music/NgauHung.mp3">您的浏览器不支持audio，请升级</audio>
+        <div class="float-right text-center">
+            <audio id="backMusicAudio" src="static/music/NgauHung.mp3">您的浏览器不支持audio，请升级</audio>
+            <p id="backMusicSpan" ng-click="actions.clickPlayAudio()" class="fa fa-2x fa-heartbeat pr-3 one-winkle" style="color: rgba(232,83,79,0.8)"></p>
         </div>
         <!--<iframe id="frameHead" class="w100p h100p" src="home.html" frameborder="0"></iframe>-->
     </header>
 
-    <div id="divCenter" class="center" style="height: 843px; width: 1888px">
+    <div id="centerDiv" class="center" style="height: 843px; width: 1888px">
         <div class="row mt-25 ml-15 h-100-p">
 
             <!--功能按钮-->
@@ -92,7 +93,7 @@
 
             <!--界面主信息-->
             <div id="divContent" class="col-sm-8 h-100-p">
-                <iframe id="frameContent" ng-model="frameChane" width="100%" height="100%" class="display-block"
+                <iframe id="contentFrame" ng-model="frameChane" width="100%" height="100%" class="display-block"
                         src="home.html" frameborder="0" scrolling="no"></iframe>
             </div>
 
@@ -114,7 +115,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- 脚-->

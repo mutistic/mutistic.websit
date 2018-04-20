@@ -38,28 +38,28 @@ CSS3参考手册：http://www.css88.com/book/css/css3-quicksearch.htm
 }
 
 /*外边距 margin*/
-.mt-5   {margin-top: 5px;}
+.mt5   {margin-top: 5px;}
 .mt-10  {margin-top: 10px;}
 .mt-15  {margin-top: 15px;}
 .mt-20  {margin-top: 20px;}
 .mt-25  {margin-top: 25px;}
 
 .ml-a   {margin-left: auto;}
-.ml-5   {margin-left: 5px;}
+.ml5   {margin-left: 5px;}
 .ml-10  {margin-left: 10px;}
 .ml-15  {margin-left: 15px;}
 .ml-20  {margin-left: 20px;}
 .ml-45-p {margin-left: 45%;}
 
 /*内边距 padding*/
-.pt-5   {padding-top: 5px;}
+.pt5   {padding-top: 5px;}
 .pt-10  {padding-top: 10px;}
 .pt-15  {padding-top: 15px;}
 .pt-25  {padding-top: 25px;}
 .pt-30  {padding-top: 30px;}
 .pt-5-p  {padding-top: 5%;}
 
-.pl-5   {padding-left: 5px;}
+.pl5   {padding-left: 5px;}
 .pl-10  {padding-left: 10px;}
 .pl-15  {padding-left: 15px;}
 .pl-25  {padding-left: 25px;}

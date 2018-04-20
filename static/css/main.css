@@ -116,5 +116,35 @@ CSS3参考手册：http://www.css88.com/book/css/css3-quicksearch.htm
 .color-home{color: #CBD0B4;}
 .color-red{color: red;}
 .color-top{color: #EC8F8D;}
+.color-pink{color: #E8534F;}
 
+.home p {
+    font-family: Chiller;
+    font-size: 60px;
+    color: #CBD0B4;
+    z-index: 1;
+}
+.home div{
+    position: absolute;
+    left: 17%;
+    top: 10px;
+    width: 67%;
+    height: 63px;
+    z-index: 2;
+}
 
+.one-winkle{
+    animation: flash 1s linear infinite;
+}
+.winkle{
+    animation: flash 5s linear infinite;
+}
+
+@keyframes flash{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

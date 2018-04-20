@@ -2,13 +2,24 @@ angular.module('indexModel', [])
     .controller('indexController',
         function ($scope, $rootScope, $interval, $timeout) {
 
-            var divBackGround = angular.element("#divBackGround");   // 背景图片
-            var audioBackMusic = angular.element("#audioBackMusic"); // 背景音乐
-            var divCenter = document.getElementById("divCenter"); // 主内容
-            var frameContent = document.getElementById("frameContent"); // 主内容-iframe
+            /**
+             * 获取 DOM对象方式:
+             * document.getElementById("DOMId");
+             * document.getElementsByClass("className");
+             * angular.element("#DOMID");
+             */
+            var backGroundDiv = document.getElementById("backGroundDiv");   // 背景图片
+            var backMusicAudio = document.getElementById("backMusicAudio"); // 背景音乐
+            var backMusicSpan = document.getElementById("backMusicSpan"); // 背景音乐-播放
+            var centerDiv = document.getElementById("centerDiv"); // 主内容
+            var contentFrame = document.getElementById("contentFrame"); // 主内容-iframe
 
             /**actions*/
             $scope.actions = {
+                /**背景音乐*/
+                "clickPlayAudio": function () {
+                    playMusic(backMusicAudio.paused); // backMusicAudio.paused: false-播放,true-停止
+                },
                 /**主页*/
                 "clickBtnHome": function () {
                     setFrameSrc("home.html");
@@ -28,28 +39,40 @@ angular.module('indexModel', [])
             };
             /**设置frame src*/
             function setFrameSrc(src) {
-                frameContent.src = src;
+                contentFrame.src = src;
             }
 
-            /**设置背景音乐和图片及轮询*/
-            setAudioBackMusic();
             /**设置背景音乐*/
-            function setAudioBackMusic() {
-                audioBackMusic.attr("volume", 0.2); //音量
-                audioBackMusic.attr("loop", true); //是否循环
-                audioBackMusic.attr("autoplay", true);//马上播放
-                audioBackMusic.attr("controls", false);//显示控制台
+            backMusicAudio.volume = 0.4; //音量：[0,1]
+            backMusicAudio.loop = "loop"; //循环方式：loop-结束后循环
+            backMusicAudio.autoplay = "autoplay";//播放方式: autoplay-立即播放
+            // audioBackMusic.controls = "controls";//控制台: controls-显示
+            /**设置音乐播放及心跳效果*/
+            $scope.musicPlay = true; //音乐默认播放
+            function playMusic(isPlayed) {
+                // 播放音乐、添加心跳效果
+                if (isPlayed) {
+                    backMusicAudio.play();
+                    $(backMusicSpan).addClass("one-winkle");
+                }
+                // 停止音乐、清除心跳效果
+                else {
+                    backMusicAudio.pause();
+                    $(backMusicSpan).removeClass("one-winkle");
+                }
             }
 
+            /**设置背景图片及音乐定时切换效果*/
             $interval(function () {
+                // $scope.backGroundTwo：false-背景图1,true-背景图2
                 if ($scope.backGroundTwo) {
-                    divBackGround.removeClass("bg2");
-                    divBackGround.addClass("bg1");
-                    audioBackMusic.attr("src", "static/music/NgauHung.mp3");
+                    $(backGroundDiv).removeClass("bg2");
+                    $(backGroundDiv).addClass("bg1");
+                    backMusicAudio.src = "static/music/NgauHung.mp3";
                 } else {
-                    divBackGround.removeClass("bg1");
-                    divBackGround.addClass("bg2");
-                    audioBackMusic.attr("src", "static/music/Time.mp3");
+                    $(backGroundDiv).removeClass("bg1");
+                    $(backGroundDiv).addClass("bg2");
+                    backMusicAudio.src = "static/music/Time.mp3";
                 }
                 $scope.backGroundTwo = !$scope.backGroundTwo;
             }, 4 * 60000);
@@ -71,12 +94,12 @@ angular.module('indexModel', [])
              *      $(iframe.contentDocument.getElementsByClassName("frame-second")).slideDown()：slideDown()回调后 此时已经加载完毕，可以设置主界面的 height
              *
              */
-            $(frameContent).bind('load', function () {
+            $(contentFrame).bind('load', function () {
                 // 设置默认高度
                 document.body.height = "843px";
-                divCenter.style.height = "843px";
+                centerDiv.style.height = "843px";
 
-                var frameDoc = frameContent.contentDocument;
+                var frameDoc = contentFrame.contentDocument;
                 if (!frameDoc) {
                     return;
                 }
@@ -93,7 +116,7 @@ angular.module('indexModel', [])
 
                         // 控制置顶置地div-显示隐藏动画(滚动条高度 > 窗口高度 = 显示)
                         // console.info("scrollHeight" + document.body.scrollHeight + " | innerHeight：" +window.innerHeight);
-                        if(document.body.scrollHeight > window.innerHeight) {
+                        if (document.body.scrollHeight > window.innerHeight) {
                             $("#top-bottom").show(700);
                         } else {
                             $("#top-bottom").hide(800);
@@ -105,28 +128,28 @@ angular.module('indexModel', [])
             function setHeight() {
                 var heightDefault = 25;
                 var frameHeight = 0;
-                if (frameContent.contentDocument.body && frameContent.contentDocument.body.offsetHeight) {
-                    frameHeight = frameContent.contentDocument.body.offsetHeight;
-                } else if (frameContent.contentDocument.documentElement && frameContent.contentDocument.documentElement.scrollHeight) {
-                    frameHeight = frameContent.contentDocument.documentElement.scrollHeight;
+                if (contentFrame.contentDocument.body && contentFrame.contentDocument.body.offsetHeight) {
+                    frameHeight = contentFrame.contentDocument.body.offsetHeight;
+                } else if (contentFrame.contentDocument.documentElement && contentFrame.contentDocument.documentElement.scrollHeight) {
+                    frameHeight = contentFrame.contentDocument.documentElement.scrollHeight;
                 }
                 if (!frameHeight) {
                     frameHeight = 0;
                 }
 
                 // console.info("baseURI" + frameContent.contentDocument.baseURI + " | frameHeight+30：" + (frameHeight + heightDefault));
-                if (divCenter.offsetHeight && divCenter.offsetHeight < frameHeight + heightDefault) {
+                if (centerDiv.offsetHeight && centerDiv.offsetHeight < frameHeight + heightDefault) {
                     document.body.height = frameHeight + heightDefault + "px";
-                    divCenter.style.height = frameHeight + heightDefault + "px";
+                    centerDiv.style.height = frameHeight + heightDefault + "px";
                 }
             }
 
 
             /**
-             * 置顶置底特效
-             * 1、$(window).scroll(); 跟随特效
-             * 2、$("#top").click(); 置顶点击特效
-             * 3、$("#bottom").click(); 置底点击特效
+             * 置顶置底效果
+             * 1、$(window).scroll(); 跟随效果
+             * 2、$("#top").click(); 置顶点击效果
+             * 3、$("#bottom").click(); 置底点击效果
              */
             $(window).scroll(function () {
                 $("#top-bottom").animate({top: $(window).scrollTop() + 300 + "px"}, 30);
@@ -170,9 +193,3 @@ angular.module('indexModel', [])
 
         }
     );
-
-// $(function(){
-//     $("#frameContent").load(function(){
-//         alert("11");
-//     });
-// });
