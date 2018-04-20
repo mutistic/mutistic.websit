@@ -26,9 +26,21 @@ angular.module('indexModel', [])
                     setFrameSrc("disclaimer.html");
                 }
             };
+            /**设置frame src*/
+            function setFrameSrc(src) {
+                frameContent.src = src;
+            }
 
             /**设置背景音乐和图片及轮询*/
             setAudioBackMusic();
+            /**设置背景音乐*/
+            function setAudioBackMusic() {
+                audioBackMusic.attr("volume", 0.2); //音量
+                audioBackMusic.attr("loop", true); //是否循环
+                audioBackMusic.attr("autoplay", true);//马上播放
+                audioBackMusic.attr("controls", false);//显示控制台
+            }
+
             $interval(function () {
                 if ($scope.backGroundTwo) {
                     divBackGround.removeClass("bg2");
@@ -69,19 +81,63 @@ angular.module('indexModel', [])
                     return;
                 }
                 var divSecondFrame = frameDoc.getElementsByClassName("content-frame-second");
-                if (divSecondFrame == null || divSecondFrame.length <= 0 ) {
+                if (divSecondFrame == null || divSecondFrame.length <= 0) {
                     return;
                 }
 
+                // iFrame - document 的 ready()事件
                 $(frameDoc).ready(function () {
+                    // iframe - div  的 slideDown()事件
                     $(divSecondFrame[0]).slideDown(500, function () {
                         setHeight();
+
+                        // 控制置顶置地div-显示隐藏动画(滚动条高度 > 窗口高度 = 显示)
+                        // console.info("scrollHeight" + document.body.scrollHeight + " | innerHeight：" +window.innerHeight);
+                        if(document.body.scrollHeight > window.innerHeight) {
+                            $("#top-bottom").show(700);
+                        } else {
+                            $("#top-bottom").hide(800);
+                        }
                     });
-                    // $(frameDoc.getElementById("divFrameSecond")).slideToggle(500, function () {
-                    //     setHeight();
-                    // });
                 });
             });
+            /**设置主界面高度*/
+            function setHeight() {
+                var heightDefault = 25;
+                var frameHeight = 0;
+                if (frameContent.contentDocument.body && frameContent.contentDocument.body.offsetHeight) {
+                    frameHeight = frameContent.contentDocument.body.offsetHeight;
+                } else if (frameContent.contentDocument.documentElement && frameContent.contentDocument.documentElement.scrollHeight) {
+                    frameHeight = frameContent.contentDocument.documentElement.scrollHeight;
+                }
+                if (!frameHeight) {
+                    frameHeight = 0;
+                }
+
+                // console.info("baseURI" + frameContent.contentDocument.baseURI + " | frameHeight+30：" + (frameHeight + heightDefault));
+                if (divCenter.offsetHeight && divCenter.offsetHeight < frameHeight + heightDefault) {
+                    document.body.height = frameHeight + heightDefault + "px";
+                    divCenter.style.height = frameHeight + heightDefault + "px";
+                }
+            }
+
+
+            /**
+             * 置顶置底特效
+             * 1、$(window).scroll(); 跟随特效
+             * 2、$("#top").click(); 置顶点击特效
+             * 3、$("#bottom").click(); 置底点击特效
+             */
+            $(window).scroll(function () {
+                $("#top-bottom").animate({top: $(window).scrollTop() + 300 + "px"}, 30);
+            });
+            $("#top").click(function () {
+                $("html,body").animate({scrollTop: "0px"}, 800);
+            });
+            $("#bottom").click(function () {
+                $("html,body").animate({scrollTop: document.body.height}, 800);
+            });
+
 
             // $(frameContent).on('load', function () {
             //     $timeout(function () {
@@ -112,38 +168,6 @@ angular.module('indexModel', [])
             // }, 200);
 
 
-            /**设置背景音乐*/
-            function setAudioBackMusic() {
-                audioBackMusic.attr("volume", 0.2); //音量
-                audioBackMusic.attr("loop", true); //是否循环
-                audioBackMusic.attr("autoplay", true);//马上播放
-                audioBackMusic.attr("controls", false);//显示控制台
-            }
-
-            /**设置frame src*/
-            function setFrameSrc(src) {
-                frameContent.src = src;
-            }
-
-            /**设置主界面高度*/
-            function setHeight() {
-                var heightDefault = 25;
-                var frameHeight = 0;
-                if (frameContent.contentDocument.body && frameContent.contentDocument.body.offsetHeight) {
-                    frameHeight = frameContent.contentDocument.body.offsetHeight;
-                } else if (frameContent.contentDocument.documentElement && frameContent.contentDocument.documentElement.scrollHeight) {
-                    frameHeight = frameContent.contentDocument.documentElement.scrollHeight;
-                }
-                if (!frameHeight) {
-                    frameHeight = 0;
-                }
-
-                console.info("baseURI" + frameContent.contentDocument.baseURI +" frameHeight+30：" + (frameHeight + heightDefault));
-                if (divCenter.offsetHeight && divCenter.offsetHeight < frameHeight + heightDefault) {
-                    document.body.height = frameHeight + heightDefault + "px";
-                    divCenter.style.height = frameHeight + heightDefault + "px";
-                }
-            }
         }
     );
 

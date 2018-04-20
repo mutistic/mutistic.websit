@@ -57,7 +57,7 @@
     <div id="divCenter" class="center" style="height: 843px; width: 1888px">
         <div class="row mt-25 ml-15 h-100-p">
 
-            <!--菜单按钮-->
+            <!--功能按钮-->
             <div class="col-sm-2 h-100-p">
                 <ul class="main-menu">
                     <li>
@@ -90,24 +90,34 @@
                 </ul>
             </div>
 
-            <!--主信息-->
+            <!--界面主信息-->
             <div id="divContent" class="col-sm-8 h-100-p">
                 <iframe id="frameContent" ng-model="frameChane" width="100%" height="100%" class="display-block"
                         src="home.html" frameborder="0" scrolling="no"></iframe>
             </div>
 
             <div class="col-sm-2 h-100-p">
-                <p>主页:Hello Word!</p>
-                <p>照片:文件服务器,分页</p>
-                <p>Tips：知识积累</p>
-                <p>BUG：遇到的BUG</p>
-                <p>读书：读书感悟</p>
-                <p>项目：登录\物流系统\文件上传</p>
+                <!--置顶置底div-->
+                <div id="top-bottom" class="top-bottom">
+                    <a href="" id="top" class="color-top fa fa-3x fa-angle-double-up"></a>
+                    <a href="" id="bottom" class="color-top fa fa-3x fa-angle-double-down pt-2"></a>
+                </div>
+
+                <p>主页</p>
+                <p>照片</p>
+                <p>Tips</p>
+                <p>BUG</p>
+                <p>读书</p>
+                <p>时间轴</p>
+                <p>后台管理</p>
                 <p>关于我们</p>
             </div>
         </div>
     </div>
 
+
+
+    <!-- 脚-->
     <footer class="footer">
         <div class="text-center pt-10 color-home">
             <a class="color-home" href="index.html">Design by 不语 个人网站</a> |
