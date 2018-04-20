@@ -1,43 +1,84 @@
+/*时间轴-div*/
 .event-timer {
     position: relative;
+    background-color: rgba(251, 248, 242, 0.6);
+    color: #666666;
 }
 
+.event-title {
+    display: block;
+    position: absolute;
+    left: 55%;
+    font-size: 45px;
+    top: 9px;
+    color: black;
+    font-family: '华文彩云';
+    z-index: 99999;
+}
+
+.event-title {
+    display: block;
+    color: #000;
+    transition: All 1.5s ease;
+    -webkit-transition: all 1.5s;
+    -moz-transition: All 1.5s ease;
+    -o-transition: All 1.5s ease;
+}
+
+.event-title:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+}
+
+/*时间轴-竖线*/
 .middle-line {
     position: absolute;
     left: 100px;
     border-left: 1px solid black;
-    height: 100%;
-    margin-top: -60px;
+    height: calc(100% - 80px);
 }
 
-.list_left {
-
-}
-
+/*年月日-div*/
 .list {
     position: relative;
     padding-bottom: 68px;
 }
 
+/*年份图标*/
 .big_squre {
     position: absolute;
     left: 82px;
     width: 36px;
     height: 36px;
-    background-color: wheat;
+    background-color: #EC8F8D;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
 }
 
+/*年份内容*/
 .big_squre i {
     position: absolute;
-    top: -1px;
+    top: -5px;
     left: 45px;
-    font-size: 26px;
-    color: wheat;
+    font-size: 33px;
+    color: #EC8F8D;
+    transition: All 1.5s ease;
+    -webkit-transition: all 1.5s;
+    -moz-transition: All 1.5s ease;
+    -o-transition: All 1.5s ease;
 }
 
+
+.big_squre i:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+}
+
+
+/*月份-div*/
 .ev_text {
     display: block;
     position: static;
@@ -46,43 +87,46 @@
     height: 70px;
 }
 
+/*月份*/
 .ev_text h3 {
-
+    width: 79px;
+    height: 36px;
+    margin-left: 1px;
+    font-size: 27px;
+    padding: 2px 0 0 25px;
+    background-color: #EAE6E6;
+    border-radius: 1%;
+    -moz-border-radius: 1%;
+    -webkit-border-radius: 5%;
 }
 
+/*月份内容*/
 .ev_text p {
-    margin-top: -48px;
+    margin-top: -54px;
     margin-left: 104px;
-    color: whitesmoke;
+    width: 81.5%;
+    height: 54px;
+    padding: 5px 0 0 5px;
+    background-color: #EAE6E6;
+    border-radius: 1%;
+    -moz-border-radius: 1%;
+    -webkit-border-radius: 2%;
 }
 
-.ev_text_odd {
-
-}
-
-.ev_text_odd h3 {
-}
-
-.ev_text_odd p {
-}
-
-.ev_text_event {
-}
-
-.small_squire {
+/*月份图标*/
+.ev_text .small_squire {
     position: absolute;
-    margin-left: 86px;
+    margin-left: 85px;
     margin-top: 10px;
     transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
 
-.small_squire i {
+/*月份图标大小*/
+.ev_text .small_squire i {
     display: block;
     width: 12px;
     height: 12px;
-    background-color: whitesmoke;
-}
-
-.small_line {
+    background-color: #666666;
 }

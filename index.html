@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>不语:上善无言 不语大德</title>
     <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon"/>
+
+    <base target="_blank" />
     <!-- Bootstrap4 CSS+JS -->
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -38,6 +40,13 @@
 
     <!-- Model -->
     <script type="text/javascript" src="static/app/index/indexModel.js"></script>
+    <script type="text/javascript" >
+//        $(function(){
+//            $("#frameContent").onloadend(function(){
+//                alert("11");
+//            });
+//        });
+    </script>
 </head>
 
 <body ng-app="indexModel" ng-controller="indexController">
@@ -52,7 +61,7 @@
         <!--<iframe id="frameHead" class="w100p h100p" src="home.html" frameborder="0"></iframe>-->
     </header>
 
-    <div class="center" style="width: 99.2%; height: 843px;">
+    <div id="divCenter" class="center w-99-p" style="height: 843px;">
         <div class="row mt-25 ml-15 h-100-p">
 
             <!--按钮-->
@@ -63,30 +72,35 @@
                                 title="主页"></button>
                     </li>
                     <li>
-                        <button id="btnImage" class="btn back-image fa fa-image fa-3x" title="照片"></button>
+                        <button id="btnImage" class="btn back-image fa fa-image fa-3x disabled"></button>
                     </li>
                     <li>
-                        <button id="btnTips" class="btn back-tips fa fa-tag fa-3x" title="Tips"></button>
+                        <button id="btnTips" class="btn back-tips fa fa-tag fa-3x disabled"></button>
                     </li>
                     <li>
-                        <button id="btnBug" class="btn back-bug fa fa-bug fa-3x" title="BUG"></button>
+                        <button id="btnBug" class="btn back-bug fa fa-bug fa-3x disabled"></button>
                     </li>
                     <li>
-                        <button id="btnBook" class="btn back-book fa fa-book fa-3x" title="读书"></button>
+                        <button id="btnBook" class="btn back-book fa fa-book fa-3x disabled"></button>
+                    </li>
+                    <li>
+                        <button id="btnTimer" ng-click="ngClick_btnTimer()"
+                                class="btn back-timer fa fa-calendar fa-3x"></button>
                     </li>
                     <li>
                         <button id="btnProduct" ng-click="ngClick_btnProduct()"
-                                class="btn back-product fa fa-product-hunt fa-3x" title="项目"></button>
+                                class="btn back-product fa fa-product-hunt fa-3x disabled"></button>
                     </li>
                     <li>
-                        <button id="btnUser" class="btn back-user fa fa-user fa-3x" title="关于我们"></button>
+                        <button id="btnUser" class="btn back-user fa fa-user fa-3x disabled"></button>
                     </li>
                 </ul>
             </div>
 
 
-            <div class="col-sm-8 h-100-p">
-                <iframe id="frameContent" class="w-100 h-100" src="timer.html" frameborder="0"></iframe>
+            <div class="col-sm-8 h-100-p" id="myiframe">
+                <iframe id="frameContent" ng-model="frameChane" width="100%" height="100%" class="d-block"
+                        src="home.html" frameborder="0" scrolling="no"></iframe>
             </div>
 
             <div class="col-sm-2 h-100-p">
