@@ -92,7 +92,7 @@ angular.module("timerModel", [])
                             {
                                 "mouths": 4,
                                 "times": "20",
-                                "even": "1、iframe添加slideDown滑动特效。2、添加置顶置地特效。3、iframe重新实现随主界面滚动。4、背景图和中间添加固宽。"
+                                "even": "1、iframe添加slideDown滑动特效。2、添加置顶置底特效。3、iframe重新实现随主界面滚动。4、处理背景图和中间协调性。"
                             }, {
                                 "mouths": 4,
                                 "times": "19",
